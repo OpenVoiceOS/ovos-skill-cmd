@@ -2,36 +2,32 @@ from pwd import getpwnam
 import os
 import subprocess
 
-from mycroft.util.log import LOG
-from mycroft.skills.core import MycroftSkill
-from adapt.intent import IntentBuilder
+from ovos_utils.log import LOG
+from ovos_workshop.skills import OVOSSkill
+from ovos_workshop.intents import IntentBuilder
 
 
 def set_user(uid, gid):
-    LOG.info('Setting group and user to {}:{}'.format(gid, uid))
+    LOG.info(f'Setting group and user to {gid}:{uid}')
     os.setgid(gid)
     os.setuid(uid)
 
 
-class CmdSkill(MycroftSkill):
-    def __init__(self):
-        super(CmdSkill, self).__init__('CmdSkill')
+class CmdSkill(OVOSSkill):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.uid = None
         self.gid = None
         self.alias = {}
 
-    def get_config(self, key):
-        self.log.debug(self.settings)
-        return (self.settings.get(key) or
-                self.config_core.get('CmdSkill', {}).get(key))
-
     def initialize(self):
-        user = self.get_config('user')
+        user = self.settings.get('user')
         if user:
             pwnam = getpwnam(user)
             self.uid = pwnam.pw_uid
             self.gid = pwnam.pw_gid
-        self.alias = self.get_config('alias') or {}
+        self.alias = self.settings.get('alias') or {}
 
         for alias in self.alias:
             self.log.info("Adding {}".format(alias))
@@ -41,7 +37,7 @@ class CmdSkill(MycroftSkill):
             .require('Script').require('Run').build()
         self.register_intent(intent, self.run)
 
-        self.bus.on('CmdSkillRun', self.run)
+        self.add_event('CmdSkillRun', self.run)
 
     def run(self, message):
         script = message.data.get('Script')
@@ -49,14 +45,9 @@ class CmdSkill(MycroftSkill):
         args = script.split(' ')
         try:
             if self.uid and self.gid:
-                subprocess.Popen(args,
-                                 preexec_fn=set_user(self.uid, self.gid))
+                subprocess.Popen(args, preexec_fn=set_user(self.uid, self.gid))
             else:
                 self.log.info('Running {}'.format(args))
                 subprocess.Popen(args)
         except Exception:
             self.log.debug('Could not run script ' + script, exc_info=True)
-
-
-def create_skill():
-    return CmdSkill()

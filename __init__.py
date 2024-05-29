@@ -5,6 +5,7 @@ import subprocess
 from ovos_utils.log import LOG
 from ovos_workshop.skills import OVOSSkill
 from ovos_workshop.intents import IntentBuilder
+from ovos_workshop.decorators import intent_handler
 
 
 def set_user(uid, gid):
@@ -30,15 +31,11 @@ class CmdSkill(OVOSSkill):
         self.alias = self.settings.get('alias') or {}
 
         for alias in self.alias:
-            self.log.info("Adding {}".format(alias))
+            LOG.info(f"Adding script keyword: {alias}")
             self.register_vocabulary(alias, 'Script')
 
-        intent = IntentBuilder('RunScriptCommandIntent')\
-            .require('Script').require('Run').build()
-        self.register_intent(intent, self.run)
-
-        self.add_event('CmdSkillRun', self.run)
-
+    @intent_handler(IntentBuilder('RunScriptCommandIntent')
+                    .require('Script').require('Run'))
     def run(self, message):
         script = message.data.get('Script')
         script = self.alias.get(script, script)
@@ -47,7 +44,7 @@ class CmdSkill(OVOSSkill):
             if self.uid and self.gid:
                 subprocess.Popen(args, preexec_fn=set_user(self.uid, self.gid))
             else:
-                self.log.info('Running {}'.format(args))
+                LOG.info(f'Running {args}')
                 subprocess.Popen(args)
         except Exception:
-            self.log.debug('Could not run script ' + script, exc_info=True)
+            LOG.exception('Could not run script ' + script)

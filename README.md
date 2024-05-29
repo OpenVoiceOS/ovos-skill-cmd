@@ -1,5 +1,4 @@
-Command Skill
-=====================
+# Commands Skill
 
 A Simple OVOS skill for running shell scripts and other commands. The commands will run quietly without any confirmation from OVOS.
 
@@ -11,7 +10,7 @@ A Simple OVOS skill for running shell scripts and other commands. The commands w
 
 ## Configuration
 
-The skill can be configured to run scripts from easily pronouncable human utterances, such as "generate report" by adding the following to the skill `settings.json`
+The skill can be configured to run scripts from easily pronounceable human utterances, such as "generate report" by adding the following to the skill `settings.json`
 
 ```json
 {
@@ -21,4 +20,4 @@ The skill can be configured to run scripts from easily pronouncable human uttera
 }
 ```
 
-The configuration above will launch `/home/forslund/scripts/generate_report.sh` when the second utterance under usage is invoked.
+The configuration above will launch `/home/forslund/scripts/generate_report.sh` when "run script generate report" is said by the user.

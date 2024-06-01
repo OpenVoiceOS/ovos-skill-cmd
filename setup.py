@@ -9,7 +9,7 @@ VERSION = "0.0.1"
 URL = "https://github.com/OVOSHatchery/ovos-skill-cmd"
 AUTHOR = "forslund"
 EMAIL = ""
-LICENSE = "GPLv3"
+LICENSE = "Apache2.0"
 DESCRIPTION = SKILL_CLAZZ # TODO
 
 PYPI_NAME = URL.split("/")[-1]  # pip install PYPI_NAME

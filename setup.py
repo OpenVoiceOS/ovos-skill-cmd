@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from setuptools import setup
 from os.path import abspath, dirname, join, isfile, isdir
-from os import walk
+from os import walk, environ
 
 # Define package information
 SKILL_CLAZZ = "CmdSkill"  # Make sure it matches __init__.py class name
@@ -10,7 +10,7 @@ URL = "https://github.com/OVOSHatchery/ovos-skill-cmd"
 AUTHOR = "forslund"
 EMAIL = ""
 LICENSE = "GPLv3"
-DESCRIPTION = SKILL_CLAZZ # TODO
+DESCRIPTION = SKILL_CLAZZ  # TODO
 
 PYPI_NAME = URL.split("/")[-1]  # pip install PYPI_NAME
 
@@ -26,10 +26,12 @@ def get_requirements(requirements_filename: str = "requirements.txt"):
     if isfile(requirements_file):
         with open(requirements_file, 'r', encoding='utf-8') as r:
             requirements = r.readlines()
-        requirements = [r.strip() for r in requirements if r.strip() and not r.strip().startswith("#")]
-        if 'MYCROFT_LOOSE_REQUIREMENTS' in os.environ:
+        requirements = [r.strip() for r in requirements
+                        if r.strip() and not r.strip().startswith("#")]
+        if 'MYCROFT_LOOSE_REQUIREMENTS' in environ:
             print('USING LOOSE REQUIREMENTS!')
-            requirements = [r.replace('==', '>=').replace('~=', '>=') for r in requirements]
+            requirements = [r.replace('==', '>=').replace('~=', '>=')
+                            for r in requirements]
         return requirements
     return []
 
@@ -43,7 +45,8 @@ def find_resource_files():
         if isdir(join(base_dir, res)):
             for (directory, _, files) in walk(join(base_dir, res)):
                 if files:
-                    package_data.append(join(directory.replace(base_dir, "").lstrip('/'), '*'))
+                    p = join(directory.replace(base_dir, "").lstrip('/'), '*')
+                    package_data.append(p)
     return package_data
 
 

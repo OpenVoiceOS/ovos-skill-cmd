@@ -1,2 +1,1 @@
-run
-execute
+(run|execute|launch) (command|script)

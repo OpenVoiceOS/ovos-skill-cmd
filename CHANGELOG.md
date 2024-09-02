@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/HEAD)
+## [V0.1.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.1.0a2) (2024-09-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/44dc7aea48ecf015eeb74baab7d20511351d34c7...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/44dc7aea48ecf015eeb74baab7d20511351d34c7...V0.1.0a2)
 
 **Implemented enhancements:**
 

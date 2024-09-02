@@ -1,0 +1,3 @@
+[ovos.plugin.skill]
+ovos-skill-cmd.forslund=ovos_skill_cmd:CmdSkill
+

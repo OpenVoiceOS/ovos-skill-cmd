@@ -1,0 +1,5 @@
+{
+  "Run.voc": [
+    "(executa|llança|inicia) (un |una |la|l'|sa |s')(ordre|orde|comanda|script)"
+  ]
+}

@@ -72,6 +72,7 @@ def get_version():
         version += f"a{alpha}"
     return version
 
+
 # Setup configuration
 setup(
     name=PYPI_NAME,

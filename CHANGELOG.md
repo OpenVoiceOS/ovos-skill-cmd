@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.2a2) (2024-11-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.2a1...0.2.2a2)
+
+**Merged pull requests:**
+
+- shell kwarg [\#13](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/13) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.2a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.2a1) (2024-11-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.1...0.2.2a1)

@@ -53,12 +53,13 @@ class CmdSkill(OVOSSkill):
     def run(self, message):
         script = message.data.get('Script')
         script = self.alias.get(script, script)
-        args = script.split(' ')
+        shell = self.settings.get('shell', True)
+        args = script.split(' ') if shell else script
         try:
+            LOG.info(f'Running {args}')
             if self.uid and self.gid:
-                subprocess.Popen(args, preexec_fn=set_user(self.uid, self.gid))
+                subprocess.Popen(args, preexec_fn=set_user(self.uid, self.gid), shell=shell)
             else:
-                LOG.info(f'Running {args}')
-                subprocess.Popen(args)
+                subprocess.Popen(args, shell=shell)
         except Exception:
             LOG.exception('Could not run script ' + script)

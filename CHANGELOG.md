@@ -1,17 +1,12 @@
 # Changelog
 
-## [0.2.2a3](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.2a3) (2024-11-17)
+## [0.2.4a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.4a1) (2024-11-17)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.2a2...0.2.2a3)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.4...0.2.4a1)
 
 **Merged pull requests:**
 
-- skill.json [\#15](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/15) ([JarbasAl](https://github.com/JarbasAl))
-- fixed italian translation [\#10](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/10) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-
-## [V0.2.2a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.2a2) (2024-11-15)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.2...V0.2.2a2)
+- fix: alias overwrite ... [\#18](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/18) ([JarbasAl](https://github.com/JarbasAl))
 
 
 

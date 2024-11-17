@@ -52,6 +52,7 @@ class CmdSkill(OVOSSkill):
     @intent_handler(IntentBuilder('RunScriptCommandIntent')
                     .require('Script').require('Run'))
     def run(self, message):
+        self.acknowledge()
         script = message.data.get('Script')
         script = self.alias.get(script, script)
         shell = self.settings.get('shell', True)
@@ -64,3 +65,4 @@ class CmdSkill(OVOSSkill):
                 subprocess.Popen(args, shell=shell)
         except Exception:
             LOG.exception('Could not run script ' + script)
+            self.play_audio("snd/error.mp3", instant=True)

@@ -12,14 +12,16 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-from pwd import getpwnam
 import os
+import shlex
 import subprocess
+from pwd import getpwnam
 
 from ovos_utils.log import LOG
-from ovos_workshop.skills import OVOSSkill
-from ovos_workshop.intents import IntentBuilder
+
 from ovos_workshop.decorators import intent_handler
+from ovos_workshop.intents import IntentBuilder
+from ovos_workshop.skills import OVOSSkill
 
 
 def set_user(uid, gid):
@@ -57,7 +59,7 @@ class CmdSkill(OVOSSkill):
         script = self.alias[alias]
         LOG.info(f"alias: {alias} | command: {script}")
         shell = self.settings.get('shell', True)
-        args = script.split(' ') if shell else script
+        args = script if shell else shlex.split(script)
         try:
             LOG.info(f'Running {args}')
             if self.uid and self.gid:

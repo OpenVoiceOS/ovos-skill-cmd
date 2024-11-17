@@ -46,7 +46,8 @@ class CmdSkill(OVOSSkill):
 
         for alias in self.alias:
             LOG.info(f"Adding script keyword: {alias}")
-            self.register_vocabulary(alias, 'Script')
+            for lang in self.native_langs:
+                self.register_vocabulary(alias, 'Script', lang=lang)
 
     @intent_handler(IntentBuilder('RunScriptCommandIntent')
                     .require('Script').require('Run'))

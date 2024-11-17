@@ -52,9 +52,10 @@ class CmdSkill(OVOSSkill):
     @intent_handler(IntentBuilder('RunScriptCommandIntent')
                     .require('Script').require('Run'))
     def run(self, message):
-        self.acknowledge()
-        script = message.data.get('Script')
-        script = self.alias.get(script, script)
+        alias = message.data.get('Script')
+        self.speak_dialog("running", {"alias": alias})
+        script = self.alias[alias]
+        LOG.info(f"alias: {alias} | command: {script}")
         shell = self.settings.get('shell', True)
         args = script.split(' ') if shell else script
         try:

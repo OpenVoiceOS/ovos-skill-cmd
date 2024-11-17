@@ -31,10 +31,10 @@ def set_user(uid, gid):
 class CmdSkill(OVOSSkill):
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.uid = None
         self.gid = None
         self.alias = {}
+        super().__init__(*args, **kwargs)
 
     def initialize(self):
         user = self.settings.get('user')

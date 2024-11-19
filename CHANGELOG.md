@@ -1,12 +1,16 @@
 # Changelog
 
-## [0.2.4a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.4a1) (2024-11-17)
+## [0.2.6a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.6a1) (2024-11-19)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.4...0.2.4a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.5...0.2.6a1)
 
 **Merged pull requests:**
 
-- fix: alias overwrite ... [\#18](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+- fix:allow workshop 3.0.0 [\#20](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/20) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V0.2.5](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.5) (2024-11-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.5...V0.2.5)
 
 
 

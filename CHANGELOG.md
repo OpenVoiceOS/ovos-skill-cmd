@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.7a3](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a3) (2024-12-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7a2...0.2.7a3)
+
+**Merged pull requests:**
+
+- import galician [\#27](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/27) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.7a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a2) (2024-11-25)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7a1...0.2.7a2)

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.7a4](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a4) (2024-12-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7a3...0.2.7a4)
+
+**Merged pull requests:**
+
+- import galician and basuqe translations [\#29](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/29) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.7a3](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a3) (2024-12-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7a2...0.2.7a3)

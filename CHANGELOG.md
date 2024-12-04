@@ -1,41 +1,17 @@
 # Changelog
 
-## [0.2.7a4](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a4) (2024-12-02)
+## [0.2.8a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.8a1) (2024-12-04)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7a3...0.2.7a4)
-
-**Merged pull requests:**
-
-- import galician and basuqe translations [\#29](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/29) ([JarbasAl](https://github.com/JarbasAl))
-
-## [0.2.7a3](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a3) (2024-12-02)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7a2...0.2.7a3)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.7...0.2.8a1)
 
 **Merged pull requests:**
 
-- import galician [\#27](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/27) ([JarbasAl](https://github.com/JarbasAl))
+- de-de/translate [\#31](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/31) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- de-de/translate [\#26](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/26) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
-## [0.2.7a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a2) (2024-11-25)
+## [V0.2.7](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.7) (2024-12-02)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7a1...0.2.7a2)
-
-**Merged pull requests:**
-
-- Add Catalan translation [\#23](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/23) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-- Add Catalan translation [\#22](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/22) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-
-## [0.2.7a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.7a1) (2024-11-25)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.6...0.2.7a1)
-
-**Merged pull requests:**
-
-- da-dk/translate [\#24](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/24) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-
-## [V0.2.6](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.6) (2024-11-19)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.6...V0.2.6)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.7...V0.2.7)
 
 
 

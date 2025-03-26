@@ -70,3 +70,8 @@ The skill can be configured to map spoken phrases to scripts or commands in the 
 
 3. **Validation**:
    - Avoid configuring dangerous commands like `rm -rf` without additional safeguards.
+
+
+## Note for using the skill in Docker containers:
+
+All commands run exclusively within the Docker container. If the commands/scripts are also supposed to have an effect outside the container, additional solutions are required (e.g., a named pipe whose content is monitored by a watch script outside the container – see the description [here](https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container))

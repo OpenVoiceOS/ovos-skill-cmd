@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.13a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.13a1) (2026-03-24)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.12a1...0.2.13a1)
+
+**Merged pull requests:**
+
+- fix: rename bare lang code locale directories [\#48](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/48) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+- Add French cmd locale [\#47](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/47) ([goldyfruit](https://github.com/goldyfruit))
+
 ## [0.2.12a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.12a1) (2026-01-19)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.11...0.2.12a1)

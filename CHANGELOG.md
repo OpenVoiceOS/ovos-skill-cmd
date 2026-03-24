@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.14a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.14a1) (2026-03-24)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.13a1...0.2.14a1)
+
+**Merged pull requests:**
+
+- fix: rename bare lang code locale directories [\#50](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/50) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+
 ## [0.2.13a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.13a1) (2026-03-24)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.12a1...0.2.13a1)
@@ -11,15 +19,11 @@
 
 ## [0.2.12a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.12a1) (2026-01-19)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.11...0.2.12a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.11...0.2.12a1)
 
 **Merged pull requests:**
 
 - es-es/translate [\#45](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/45) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-
-## [V0.2.11](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.11) (2025-06-08)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.11...V0.2.11)
 
 
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.14a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.14a2) (2026-04-04)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.14a1...0.2.14a2)
+
+**Merged pull requests:**
+
+- ci: modernize GitHub workflows [\#53](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/53) ([JarbasAl](https://github.com/JarbasAl))
+- fix\(i18n\): normalize locale folders to canonical BCP-47 [\#52](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/52) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.14a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.14a1) (2026-03-24)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.13a1...0.2.14a1)

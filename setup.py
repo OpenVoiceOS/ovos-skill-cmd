@@ -88,6 +88,6 @@ setup(
     include_package_data=True,
     install_requires=get_requirements(),
     keywords='ovos skill plugin',
-    extras_require={'test': ['ovoscope>=0.13.1', 'pytest>=7.0.0', 'pytest-timeout>=2.0.0']},
+    extras_require={'test': ['ovoscope>=0.13.1', 'pytest>=7.0.0', 'pytest-timeout>=2.0.0', 'ovos-adapt-parser']},
     entry_points={'ovos.plugin.skill': PLUGIN_ENTRY_POINT}
 )

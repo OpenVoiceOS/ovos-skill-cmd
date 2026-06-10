@@ -26,7 +26,8 @@ class _IntentRoutingMixin:
             cls.minicroft.stop()
 
 
-    def _assert_adapt(self, utterance: str, __intent_name: str = ''):
+    def _assert_adapt(self, utterance: str, intent_label: str = ''):
+        intent_msg_type = f"{SKILL_ID}:{intent_label}" if intent_label else None
         session = Session(f"e2e-en_us-adapt-{hash(utterance)}")
         session.lang = LANG
         session.pipeline = [
@@ -39,18 +40,38 @@ class _IntentRoutingMixin:
             {"utterances": [utterance], "lang": LANG},
             {"session": session.serialize()},
         )
+        activation_points = [intent_msg_type] if intent_msg_type else []
+        expected = [
+            message,
+            Message(f"{SKILL_ID}.activate", {}, {"skill_id": SKILL_ID}),
+            Message("mycroft.skill.handler.start", {}, {"skill_id": SKILL_ID}),
+            Message("mycroft.skill.handler.complete", {}, {"skill_id": SKILL_ID}),
+            Message("ovos.utterance.handled", {}, {"skill_id": SKILL_ID}),
+        ]
+        if intent_msg_type:
+            expected.insert(2, Message(intent_msg_type, {}, {"skill_id": SKILL_ID}))
         test = End2EndTest(
             minicroft=self.minicroft,
             skill_ids=[SKILL_ID],
             eof_msgs=["ovos.utterance.handled"],
             flip_points=["recognizer_loop:utterance"],
             source_message=message,
-            expected_messages=["speak"],
+            activation_points=activation_points,
+            test_msg_context=False,
+            test_message_number=False,
+            ignore_messages=["speak", "mycroft.audio.play_sound"],
+            expected_messages=expected,
         )
         test.execute(timeout=30)
 
 
 class TestAdapt1_Runscriptcommandintent(_IntentRoutingMixin, TestCase):
     """Adapt intent: RunScriptCommandIntent"""
-    def test_run_execute_launch_command_script(self):
-        self._assert_adapt(r"(run|execute|launch) (command|script)", r"RunScriptCommandIntent")
+    def test_run_a_command(self):
+        self._assert_adapt(r"run a command", r"RunScriptCommandIntent")
+
+    def test_execute_script(self):
+        self._assert_adapt(r"execute a script", r"RunScriptCommandIntent")
+
+    def test_launch_command(self):
+        self._assert_adapt(r"launch command", r"RunScriptCommandIntent")

@@ -28,7 +28,7 @@ test = [
 [project.urls]
 Homepage = "https://github.com/OpenVoiceOS/ovos-skill-cmd"
 
-[project.entry-points."ovos.plugin.skill"]
+[project.entry-points."opm.skill"]
 "ovos-skill-cmd.openvoiceos" = "ovos_skill_cmd:CmdSkill"
 
 [tool.setuptools.dynamic]

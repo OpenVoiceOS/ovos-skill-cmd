@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos-skill-cmd"
+dynamic = ["version"]
+description = "OVOS run command skill"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "JarbasAi", email = "jarbasai@mailfence.com"}
+]
+keywords = ["ovos", "skill", "plugin"]
+dependencies = [
+    "ovos-plugin-manager>=2.1.0,<3.0.0",
+    "ovos-utils>=0.0.38,<1.0.0",
+    "ovos-workshop>=0.0.15,<9.0.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "ovoscope>=0.13.1,<1.0.0",
+    "pytest>=7.0.0,<9",
+    "pytest-timeout>=2.0.0",
+    "ovos-adapt-parser>=1.0.0,<2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/OpenVoiceOS/ovos-skill-cmd"
+
+[project.entry-points."opm.skill"]
+"ovos-skill-cmd.openvoiceos" = "ovos_skill_cmd:CmdSkill"
+
+[tool.setuptools.dynamic]
+version = {attr = "ovos_skill_cmd.version.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ovos_skill_cmd*"]
+
+[tool.setuptools.package-data]
+ovos_skill_cmd = [
+    "*.json",
+    "locale/**/*",
+]

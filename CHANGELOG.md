@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.3.0a2) (2026-08-13)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.3.0a1...0.3.0a2)
+
+**Merged pull requests:**
+
+- test: golden-utterance e2e suite for ovos-skill-cmd [\#61](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/61) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.3.0a1) (2026-08-10)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.14a4...0.3.0a1)

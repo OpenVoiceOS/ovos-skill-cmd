@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.1a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.3.1a2) (2026-08-25)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.3.1a1...0.3.1a2)
+
+**Merged pull requests:**
+
+- translate\(kab-DZ\): update skill.json [\#67](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/67) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+- translate\(kab-DZ\): update running.dialog [\#66](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/66) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+- translate\(kab-DZ\): update Run.voc [\#65](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/65) ([ovos-localize[bot]](https://github.com/apps/ovos-localize))
+
 ## [0.3.1a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.3.1a1) (2026-08-14)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.3.0a2...0.3.1a1)

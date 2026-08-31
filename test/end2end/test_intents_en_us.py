@@ -1,19 +1,19 @@
 """End-to-end intent-routing tests for ovos-skill-cmd (en-US).
 
-These assert *per-utterance* that the Adapt pipeline routes an utterance to the
-``RunScriptCommandIntent`` handler and that the skill speaks the configured
-alias back. They deliberately use subset assertions over the captured message
-stream rather than a strict full-sequence match: the exact ordered sequence
-drifts across ovos-core / ovoscope releases (e.g. an extra
+These assert *per-utterance* that the Padatious pipeline routes an utterance
+to the ``RunScriptCommandIntent`` handler and that the skill speaks the
+configured alias back. They deliberately use subset assertions over the
+captured message stream rather than a strict full-sequence match: the exact
+ordered sequence drifts across ovos-core / ovoscope releases (e.g. an extra
 ``ovos.intent.matched`` message, or ``speak`` vs ``ovos.utterance.speak``),
 which is orthogonal to what this skill is responsible for.
 
-``RunScriptCommandIntent`` requires both the ``Run`` vocabulary (from
-``Run.voc``) and a ``Script`` keyword, and the ``Script`` keywords are
-registered dynamically from the skill's ``alias`` setting. The suite therefore
-seeds a settings file with a couple of aliases under a private XDG config root
+``RunScriptCommandIntent`` is trained from ``RunScriptCommandIntent.intent``,
+with the ``{script}`` slot filled from a Padatious entity that is registered
+dynamically from the skill's ``alias`` setting. The suite therefore seeds a
+settings file with a couple of aliases under a private XDG config root
 *before* the MiniCroft loads the skill, so ``initialize()`` registers the
-matching vocabulary.
+matching entity.
 
 Run:
     uv run pytest test/end2end/ -v
@@ -33,7 +33,7 @@ def _seed_settings() -> None:
     """Write a skill settings file with aliases under a private XDG root.
 
     Must run before the MiniCroft loads the skill so ``initialize()`` picks up
-    the aliases and registers the ``Script`` vocabulary the intent requires.
+    the aliases and registers the ``script`` entity the intent requires.
     """
     root = tempfile.mkdtemp(prefix="ovos-skill-cmd-e2e-")
     os.environ["XDG_CONFIG_HOME"] = os.path.join(root, "config")
@@ -49,13 +49,13 @@ _seed_settings()
 
 from ovos_bus_client.message import Message  # noqa: E402
 from ovos_bus_client.session import Session  # noqa: E402
-from ovoscope import get_minicroft, CaptureSession, ADAPT_PIPELINE  # noqa: E402
+from ovoscope import get_minicroft, CaptureSession, PADACIOSO_PIPELINE  # noqa: E402
 
 
 def _session(tag: str) -> Session:
     session = Session(f"e2e-en_us-cmd-{tag}")
     session.lang = LANG
-    session.pipeline = ADAPT_PIPELINE
+    session.pipeline = PADACIOSO_PIPELINE
     return session
 
 
@@ -109,7 +109,7 @@ class _RunRoutingMixin:
 
 
 class TestRunScriptCommandIntent(_RunRoutingMixin, TestCase):
-    """RunScriptCommandIntent routes across the Run.voc phrasings."""
+    """RunScriptCommandIntent routes across the RunScriptCommandIntent.intent phrasings."""
 
     def test_run_command_alias(self):
         self.assertRoutesToRun("run command backup", "backup")
@@ -119,3 +119,16 @@ class TestRunScriptCommandIntent(_RunRoutingMixin, TestCase):
 
     def test_launch_command_alias(self):
         self.assertRoutesToRun("launch command backup", "backup")
+
+    def test_unknown_alias_does_not_run(self):
+        messages = self._capture("run script that does not exist")
+        self.assertIn(RUN_INTENT, [m.msg_type for m in messages])
+        spoken = self._spoken(messages)
+        self.assertTrue(
+            any("don't know a script" in utt for utt in spoken),
+            f"expected the unknown-script dialog to be spoken, got {spoken}",
+        )
+        self.assertFalse(
+            any("running" in utt for utt in spoken),
+            f"did not expect the running dialog to be spoken, got {spoken}",
+        )

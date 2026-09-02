@@ -17,6 +17,7 @@ import shlex
 import subprocess
 from pwd import getpwnam
 
+from ovos_utils.dialog import join_list
 from ovos_utils.log import LOG
 
 from ovos_workshop.decorators import intent_handler
@@ -50,6 +51,14 @@ class CmdSkill(OVOSSkill):
             for lang in self.native_langs:
                 LOG.info(f"Adding script entities: {samples}")
                 self.intent_service.register_entity('script', samples, lang)
+
+    @intent_handler("list_scripts.intent")
+    def handle_list_scripts(self, message):
+        names = list(self.alias)
+        if not names:
+            self.speak_dialog("no.scripts")
+            return
+        self.speak(join_list(names, "and"))
 
     @intent_handler("RunScriptCommandIntent.intent")
     def run(self, message):

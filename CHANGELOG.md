@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.4.0a1) (2026-09-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.3.2a2...0.4.0a1)
+
+**Merged pull requests:**
+
+- feat: add list-aliases intent for configured scripts [\#74](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/74) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.2a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.3.2a2) (2026-09-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.3.2a1...0.3.2a2)

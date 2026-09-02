@@ -3,10 +3,11 @@
 The golden corpus (``golden_utterances.jsonl``) is a vendored slice of the
 shared ovoscope golden-utterance dataset (skill_id
 "ovos-skill-cmd.openvoiceos"), supplemented with rows derived from this
-skill's own ``Run.voc``/``skill.json`` templates: the master corpus carries
-only one bare stub row ("run command") for this skill, which cannot route on
-its own because ``RunScriptCommandIntent`` requires *both* the ``Run``
-vocabulary and a dynamically-registered ``Script`` alias keyword (see
+skill's own ``RunScriptCommandIntent.intent``/``skill.json`` templates: the
+master corpus carries only one bare stub row ("run command") for this
+skill, which cannot route on its own because ``RunScriptCommandIntent`` is
+trained from ``RunScriptCommandIntent.intent`` and needs the ``{script}``
+slot filled by a dynamically-registered Padatious entity (see
 ``initialize()`` in ``ovos_skill_cmd/__init__.py``). That stub is kept here
 with ``needs_manual: true`` (flagged, not deleted) as a finding for the
 master corpus: it needs an alias suffix (e.g. "run command backup") to be a
@@ -44,7 +45,7 @@ _seed_settings()
 
 from ovos_bus_client.message import Message  # noqa: E402
 from ovos_bus_client.session import Session  # noqa: E402
-from ovoscope import ADAPT_PIPELINE, CaptureSession, get_minicroft  # noqa: E402
+from ovoscope import PADACIOSO_PIPELINE, CaptureSession, get_minicroft  # noqa: E402
 
 GOLDEN_PATH = Path(__file__).parent / "golden_utterances.jsonl"
 
@@ -63,12 +64,29 @@ NEGATIVE_UTTERANCES = [
 
 _NEEDS_MANUAL_REASONS = {
     "run command": (
-        "bare master-corpus stub with no Script alias suffix -- "
-        "RunScriptCommandIntent requires both the Run vocabulary and a "
-        "dynamically-registered Script alias keyword (see initialize() in "
+        "bare master-corpus stub with no script alias suffix -- "
+        "RunScriptCommandIntent is trained from RunScriptCommandIntent.intent "
+        "and needs the {script} slot filled by a dynamically-registered "
+        "Padatious entity (see initialize() in "
         "ovos_skill_cmd/__init__.py), so this utterance alone can never "
         "route. Kept as a flagged row (not deleted) for master-corpus "
         "absorption: needs an alias suffix, e.g. 'run command backup'."
+    ),
+    "please run command backup for me": (
+        "RunScriptCommandIntent.intent is a fixed Padatious template with no "
+        "filler-word tolerance; the prior Adapt keyword match ('Run' + "
+        "'Script' present anywhere in the utterance) routed this regardless "
+        "of the surrounding 'please ... for me', which the .intent template "
+        "does not model. Kept as a flagged row (not deleted) for "
+        "master-corpus absorption."
+    ),
+    "can you execute script weather now": (
+        "RunScriptCommandIntent.intent is a fixed Padatious template with no "
+        "filler-word tolerance; the prior Adapt keyword match ('Run' + "
+        "'Script' present anywhere in the utterance) routed this regardless "
+        "of the surrounding 'can you ... now', which the .intent template "
+        "does not model. Kept as a flagged row (not deleted) for "
+        "master-corpus absorption."
     ),
 }
 
@@ -105,7 +123,7 @@ def minicroft():
 def _capture(mc, text, session_id):
     session = Session(session_id)
     session.lang = LANG
-    session.pipeline = ADAPT_PIPELINE
+    session.pipeline = PADACIOSO_PIPELINE
     utterance = Message(
         "recognizer_loop:utterance",
         {"utterances": [text], "lang": LANG},
@@ -119,7 +137,7 @@ def _capture(mc, text, session_id):
 @pytest.mark.timeout(60)
 @pytest.mark.parametrize("row", GOLDEN_ROWS, ids=lambda r: r["utterance"])
 def test_golden_utterance(minicroft, row):
-    # NOTE: on this ovos-core/ovos-bus-client version, the Adapt pipeline
+    # NOTE: on this ovos-core/ovos-bus-client version, the Padatious pipeline
     # emits the matched intent directly as msg_type
     # "<skill_id>:<IntentName>" (observed via capture below) rather than a
     # generic "ovos.intent.matched" wrapper carrying data.intent_name -- the

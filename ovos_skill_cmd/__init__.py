@@ -20,7 +20,6 @@ from pwd import getpwnam
 from ovos_utils.log import LOG
 
 from ovos_workshop.decorators import intent_handler
-from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills import OVOSSkill
 
 
@@ -46,15 +45,18 @@ class CmdSkill(OVOSSkill):
             self.gid = pwnam.pw_gid
         self.alias = self.settings.get('alias') or {}
 
-        for alias in self.alias:
-            LOG.info(f"Adding script keyword: {alias}")
+        samples = list(self.alias)
+        if samples:
             for lang in self.native_langs:
-                self.register_vocabulary(alias, 'Script', lang=lang)
+                LOG.info(f"Adding script entities: {samples}")
+                self.intent_service.register_entity('script', samples, lang)
 
-    @intent_handler(IntentBuilder('RunScriptCommandIntent')
-                    .require('Script').require('Run'))
+    @intent_handler("RunScriptCommandIntent.intent")
     def run(self, message):
-        alias = message.data.get('Script')
+        alias = message.data.get('script')
+        if alias not in self.alias:
+            self.speak_dialog("unknown.script", {"name": alias})
+            return
         self.speak_dialog("running", {"alias": alias})
         script = self.alias[alias]
         LOG.info(f"alias: {alias} | command: {script}")

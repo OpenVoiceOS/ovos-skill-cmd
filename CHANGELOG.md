@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.2a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.3.2a2) (2026-09-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.3.2a1...0.3.2a2)
+
+**Merged pull requests:**
+
+- refactor: migrate RunScriptCommandIntent to a .intent file [\#71](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/71) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.3.2a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.3.2a1) (2026-08-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.3.1a2...0.3.2a1)

@@ -3,15 +3,31 @@
 The golden corpus (``golden_utterances.jsonl``) is a vendored slice of the
 shared ovoscope golden-utterance dataset (skill_id
 "ovos-skill-cmd.openvoiceos"), supplemented with rows derived from this
-skill's own ``RunScriptCommandIntent.intent``/``skill.json`` templates: the
-master corpus carries only one bare stub row ("run command") for this
-skill, which cannot route on its own because ``RunScriptCommandIntent`` is
-trained from ``RunScriptCommandIntent.intent`` and needs the ``{script}``
-slot filled by a dynamically-registered Padatious entity (see
-``initialize()`` in ``ovos_skill_cmd/__init__.py``). That stub is kept here
-with ``needs_manual: true`` (flagged, not deleted) as a finding for the
-master corpus: it needs an alias suffix (e.g. "run command backup") to be a
-valid routable row.
+skill's own ``RunScriptCommandIntent.intent``/``list_scripts.intent``/
+``skill.json`` templates: the master corpus carries only one bare stub row
+("run command") for this skill, which cannot route on its own because
+``RunScriptCommandIntent`` is trained from ``RunScriptCommandIntent.intent``
+and needs the ``{script}`` slot filled by a dynamically-registered
+Padatious entity (see ``initialize()`` in ``ovos_skill_cmd/__init__.py``).
+That stub is kept here with ``needs_manual: true`` (flagged, not deleted)
+as a finding for the master corpus: it needs an alias suffix (e.g. "run
+command backup") to be a valid routable row.
+
+Both ``.intent`` templates were widened to cover natural phrasings a real
+user would speak that the original single-line templates did not match
+("run the backup script", "start script backup", "show me my scripts",
+etc. -- verified as genuine template gaps, not lookup issues, before
+``RunScriptCommandIntent.intent``/``list_scripts.intent`` were extended
+with a "start" verb synonym, optional "the"/"my" determiners, and a
+reversed {script}-then-noun slot order).
+
+A sibling ``RunScriptCommandIntent.blacklist``/``list_scripts.blacklist``
+locale file was also added per OVOS-INTENT-2 SS4.3, listing phrases from
+adjacent domains (weather/music/calendar/alerts/etc.) that reuse a word
+from the widened templates or from a configured alias ("backup camera"
+reuses the "backup" alias word). None of these currently mis-route -- the
+blacklist here is proactive hardening against future template/alias
+drift, not a fix for an observed false positive.
 
 A settings file seeding two aliases ("backup", "weather") is written under a
 private XDG config root before the MiniCroft loads the skill, matching
@@ -59,6 +75,19 @@ NEGATIVE_UTTERANCES = [
     ("execute a wolfram alpha search", "ovos-skill-wolfie.openvoiceos"),
     ("tell me a joke", "skill-icanhazdadjokes.openvoiceos"),
     ("search the web for cats", "ovos-skill-ddg.openvoiceos"),
+    # Sibling confusables against the widened RunScriptCommandIntent.intent
+    # ("start ..." was added as a verb alongside run/execute/launch).
+    ("start my day", "ovos-skill-personal.openvoiceos"),
+    ("start the timer", "ovos-skill-alerts.openvoiceos"),
+    # Sibling confusables against the widened list_scripts.intent
+    # ("show me ..." was added alongside list/what are).
+    ("show me my calendar", "ovos-skill-calendar.openvoiceos"),
+    ("what are my favorite songs", "ovos-skill-music.openvoiceos"),
+    ("list my reminders", "ovos-skill-alerts.openvoiceos"),
+    # Also covered by RunScriptCommandIntent.blacklist ("backup camera"),
+    # proactive suppression for a phrase that reuses the "backup" alias word
+    # in an unrelated (car-electronics) domain.
+    ("launch backup camera", "ovos-skill-car.openvoiceos"),
 ]
 
 

@@ -120,6 +120,27 @@ class TestRunScriptCommandIntent(_RunRoutingMixin, TestCase):
     def test_launch_command_alias(self):
         self.assertRoutesToRun("launch command backup", "backup")
 
+    def test_run_the_backup_script(self):
+        self.assertRoutesToRun("run the backup script", "backup")
+
+    def test_run_backup_script_reversed_slot(self):
+        self.assertRoutesToRun("run backup script", "backup")
+
+    def test_start_the_backup_script(self):
+        self.assertRoutesToRun("start the backup script", "backup")
+
+    def test_start_script_backup(self):
+        self.assertRoutesToRun("start script backup", "backup")
+
+    def test_execute_the_backup_command(self):
+        self.assertRoutesToRun("execute the backup command", "backup")
+
+    def test_launch_the_weather_script(self):
+        self.assertRoutesToRun("launch the weather script", "weather")
+
+    def test_run_my_backup_script(self):
+        self.assertRoutesToRun("run my backup script", "backup")
+
     def test_unknown_alias_does_not_run(self):
         messages = self._capture("run script that does not exist")
         self.assertIn(RUN_INTENT, [m.msg_type for m in messages])

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.6.0a1) (2026-09-07)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.5.0a2...0.6.0a1)
+
+**Merged pull requests:**
+
+- feat: oc-FR locale parity [\#78](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/78) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.5.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.5.0a2) (2026-09-07)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.5.0a1...0.5.0a2)

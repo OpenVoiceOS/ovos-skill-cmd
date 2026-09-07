@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.5.0a2) (2026-09-07)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.5.0a1...0.5.0a2)
+
+**Merged pull requests:**
+
+- chore: drop unused ovos-adapt-parser dependency [\#80](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/80) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.5.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.5.0a1) (2026-09-07)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.4.0a1...0.5.0a1)

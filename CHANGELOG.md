@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.7.0a1) (2026-09-09)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.6.0a1...0.7.0a1)
+
+**Merged pull requests:**
+
+- feat: list\_scripts intent and fallback dialogs in every locale [\#83](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/83) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.6.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.6.0a1) (2026-09-07)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.5.0a2...0.6.0a1)

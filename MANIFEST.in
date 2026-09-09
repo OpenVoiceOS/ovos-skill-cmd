@@ -1,2 +1,2 @@
-recursive-include locale *
+recursive-include ovos_skill_cmd/locale *
 include *.txt

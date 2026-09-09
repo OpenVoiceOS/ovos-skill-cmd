@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.7.0a2) (2026-09-09)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.7.0a1...0.7.0a2)
+
+**Merged pull requests:**
+
+- Locale sv-SE: Look over and improve language [\#84](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/84) ([forslund](https://github.com/forslund))
+
 ## [0.7.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.7.0a1) (2026-09-09)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.6.0a1...0.7.0a1)

@@ -97,3 +97,12 @@ class TestListScriptsIntent(TestCase):
 
     def test_which_commands_can_you_run(self):
         self.assertRoutesToList("which commands can you run")
+
+    def test_show_me_my_scripts(self):
+        self.assertRoutesToList("show me my scripts")
+
+    def test_tell_me_the_scripts_you_know(self):
+        self.assertRoutesToList("tell me the scripts you know")
+
+    def test_what_scripts_do_you_have(self):
+        self.assertRoutesToList("what scripts do you have")

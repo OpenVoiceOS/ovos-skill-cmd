@@ -1,1 +1,6 @@
-(run|execute|launch) (command|script) {script}
+(run|execute|launch|start) (command|script) {script}
+(run|execute|launch|start) the (command|script) {script}
+(run|execute|launch|start) my (command|script) {script}
+(run|execute|launch|start) {script} (command|script)
+(run|execute|launch|start) the {script} (command|script)
+(run|execute|launch|start) my {script} (command|script)

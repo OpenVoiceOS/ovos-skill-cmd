@@ -24,7 +24,7 @@ from ovoscope import get_minicroft, CaptureSession, PADACIOSO_PIPELINE  # noqa: 
 
 
 class TestListScriptsIntentNoAlias(TestCase):
-    """list_scripts.intent speaks the no.scripts dialog when unconfigured."""
+    """list_scripts.intent speaks the no_scripts dialog when unconfigured."""
 
     @classmethod
     def setUpClass(cls):
@@ -63,5 +63,5 @@ class TestListScriptsIntentNoAlias(TestCase):
                 or "No commands are set up yet" in utt
                 for utt in spoken
             ),
-            f"expected the no.scripts dialog to be spoken, got {spoken}",
+            f"expected the no_scripts dialog to be spoken, got {spoken}",
         )

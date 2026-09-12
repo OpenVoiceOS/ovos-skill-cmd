@@ -1,14 +1,14 @@
 """End-to-end intent-routing tests for ovos-skill-cmd (en-US).
 
 These assert *per-utterance* that the Padatious pipeline routes an utterance
-to the ``RunScriptCommandIntent`` handler and that the skill speaks the
+to the ``run_script_command`` handler and that the skill speaks the
 configured alias back. They deliberately use subset assertions over the
 captured message stream rather than a strict full-sequence match: the exact
 ordered sequence drifts across ovos-core / ovoscope releases (e.g. an extra
 ``ovos.intent.matched`` message, or ``speak`` vs ``ovos.utterance.speak``),
 which is orthogonal to what this skill is responsible for.
 
-``RunScriptCommandIntent`` is trained from ``RunScriptCommandIntent.intent``,
+``run_script_command`` is trained from ``run_script_command.intent``,
 with the ``{script}`` slot filled from a Padatious entity that is registered
 dynamically from the skill's ``alias`` setting. The suite therefore seeds a
 settings file with a couple of aliases under a private XDG config root
@@ -25,7 +25,7 @@ from unittest import TestCase
 
 SKILL_ID = "ovos-skill-cmd.openvoiceos"
 LANG = "en-US"
-RUN_INTENT = f"{SKILL_ID}:RunScriptCommandIntent"
+RUN_INTENT = f"{SKILL_ID}:run_script_command"
 ALIASES = {"backup": "echo backup", "weather": "echo weather"}
 
 
@@ -108,8 +108,8 @@ class _RunRoutingMixin:
         )
 
 
-class TestRunScriptCommandIntent(_RunRoutingMixin, TestCase):
-    """RunScriptCommandIntent routes across the RunScriptCommandIntent.intent phrasings."""
+class TestRunScriptCommand(_RunRoutingMixin, TestCase):
+    """run_script_command routes across the run_script_command.intent phrasings."""
 
     def test_run_command_alias(self):
         self.assertRoutesToRun("run command backup", "backup")

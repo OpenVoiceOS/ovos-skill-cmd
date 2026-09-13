@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.8.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.0a1) (2026-09-13)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.7.0a2...0.8.0a1)
+
+**Merged pull requests:**
+
+- feat: add missing kab locale resources for parity with en-US [\#88](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/88) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+- fix\(da-DK\): use imperative verb form in skill.json example [\#85](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/85) ([andlo](https://github.com/andlo))
+
 ## [0.7.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.7.0a2) (2026-09-09)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.7.0a1...0.7.0a2)

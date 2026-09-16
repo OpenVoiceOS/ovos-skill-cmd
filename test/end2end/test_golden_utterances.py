@@ -3,10 +3,10 @@
 The golden corpus (``golden_utterances.jsonl``) is a vendored slice of the
 shared ovoscope golden-utterance dataset (skill_id
 "ovos-skill-cmd.openvoiceos"), supplemented with rows derived from this
-skill's own ``RunScriptCommandIntent.intent``/``skill.json`` templates: the
+skill's own ``run_script_command.intent``/``skill.json`` templates: the
 master corpus carries only one bare stub row ("run command") for this
-skill, which cannot route on its own because ``RunScriptCommandIntent`` is
-trained from ``RunScriptCommandIntent.intent`` and needs the ``{script}``
+skill, which cannot route on its own because ``run_script_command`` is
+trained from ``run_script_command.intent`` and needs the ``{script}``
 slot filled by a dynamically-registered Padatious entity (see
 ``initialize()`` in ``ovos_skill_cmd/__init__.py``). That stub is kept here
 with ``needs_manual: true`` (flagged, not deleted) as a finding for the
@@ -65,7 +65,7 @@ NEGATIVE_UTTERANCES = [
 _NEEDS_MANUAL_REASONS = {
     "run command": (
         "bare master-corpus stub with no script alias suffix -- "
-        "RunScriptCommandIntent is trained from RunScriptCommandIntent.intent "
+        "run_script_command is trained from run_script_command.intent "
         "and needs the {script} slot filled by a dynamically-registered "
         "Padatious entity (see initialize() in "
         "ovos_skill_cmd/__init__.py), so this utterance alone can never "
@@ -73,7 +73,7 @@ _NEEDS_MANUAL_REASONS = {
         "absorption: needs an alias suffix, e.g. 'run command backup'."
     ),
     "please run command backup for me": (
-        "RunScriptCommandIntent.intent is a fixed Padatious template with no "
+        "run_script_command.intent is a fixed Padatious template with no "
         "filler-word tolerance; the prior Adapt keyword match ('Run' + "
         "'Script' present anywhere in the utterance) routed this regardless "
         "of the surrounding 'please ... for me', which the .intent template "
@@ -81,7 +81,7 @@ _NEEDS_MANUAL_REASONS = {
         "master-corpus absorption."
     ),
     "can you execute script weather now": (
-        "RunScriptCommandIntent.intent is a fixed Padatious template with no "
+        "run_script_command.intent is a fixed Padatious template with no "
         "filler-word tolerance; the prior Adapt keyword match ('Run' + "
         "'Script' present anywhere in the utterance) routed this regardless "
         "of the surrounding 'can you ... now', which the .intent template "

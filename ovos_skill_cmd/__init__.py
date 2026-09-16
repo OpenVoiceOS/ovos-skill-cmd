@@ -56,15 +56,15 @@ class CmdSkill(OVOSSkill):
     def handle_list_scripts(self, message):
         names = list(self.alias)
         if not names:
-            self.speak_dialog("no.scripts")
+            self.speak_dialog("no_scripts")
             return
         self.speak(join_list(names, "and"))
 
-    @intent_handler("RunScriptCommandIntent.intent")
+    @intent_handler("run_script_command.intent")
     def run(self, message):
         alias = message.data.get('script')
         if alias not in self.alias:
-            self.speak_dialog("unknown.script", {"name": alias})
+            self.speak_dialog("unknown_script", {"name": alias})
             return
         self.speak_dialog("running", {"alias": alias})
         script = self.alias[alias]

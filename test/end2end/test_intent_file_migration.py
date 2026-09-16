@@ -1,9 +1,9 @@
-"""End-to-end proof that ``RunScriptCommandIntent`` is a Padatious ``.intent``
+"""End-to-end proof that ``run_script_command`` is a Padatious ``.intent``
 match, not an Adapt keyword match.
 
 The session pipeline is pinned to ``PADACIOSO_PIPELINE`` only (Adapt excluded),
 so this test can only pass if the intent is trained from
-``RunScriptCommandIntent.intent`` and the ``{script}`` slot is populated from
+``run_script_command.intent`` and the ``{script}`` slot is populated from
 a dynamically registered Padatious entity (the skill's ``alias`` setting).
 
 Run:
@@ -16,7 +16,7 @@ from unittest import TestCase
 
 SKILL_ID = "ovos-skill-cmd.openvoiceos"
 LANG = "en-US"
-RUN_INTENT = f"{SKILL_ID}:RunScriptCommandIntent"
+RUN_INTENT = f"{SKILL_ID}:run_script_command"
 ALIASES = {"backup": "echo backup"}
 
 
@@ -53,8 +53,8 @@ def _utterance(utt: str, session: Session) -> Message:
     )
 
 
-class TestRunScriptCommandIntentFile(TestCase):
-    """RunScriptCommandIntent must route via Padatious/.intent alone."""
+class TestRunScriptCommandFile(TestCase):
+    """run_script_command must route via Padatious/.intent alone."""
 
     @classmethod
     def setUpClass(cls):

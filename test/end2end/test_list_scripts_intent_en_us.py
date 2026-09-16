@@ -2,7 +2,7 @@
 
 Asserts that phrasings from ``list_scripts.intent`` route to
 ``handle_list_scripts`` and that the skill speaks back the configured alias
-names when present, or the ``no.scripts`` dialog when the ``alias`` setting
+names when present, or the ``no_scripts`` dialog when the ``alias`` setting
 is empty.
 
 Run:

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.1a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.1a1) (2026-09-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.0a1...0.8.1a1)
+
+**Merged pull requests:**
+
+- fix: rename non-compliant resource base names \(OVOS-INTENT-2 §2\) [\#89](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/89) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.8.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.0a1) (2026-09-13)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.7.0a2...0.8.0a1)

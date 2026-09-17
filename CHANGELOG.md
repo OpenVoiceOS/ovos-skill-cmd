@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.4a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.4a1) (2026-09-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.3a2...0.8.4a1)
+
+**Merged pull requests:**
+
+- fix: raise the ovoscope floor so MiniCroft can start [\#99](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/99) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.8.3a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.3a2) (2026-09-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.3a1...0.8.3a2)

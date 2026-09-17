@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.8.3a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.3a1) (2026-09-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.2a1...0.8.3a1)
+
+**Merged pull requests:**
+
+- feat\(locale\): fill it-IT gap against en-US [\#95](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/95) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+- fix: locale resource names per OVOS-INTENT-2 [\#94](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/94) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.8.2a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.2a1) (2026-09-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.1a1...0.8.2a1)

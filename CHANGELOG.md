@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.8.5a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.5a1) (2026-09-18)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.4a1...0.8.5a1)
+
+**Merged pull requests:**
+
+- fix\(kab\): drop leaked examples\[N\] index prefixes from skill.json [\#102](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/102) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+- fix\(kab\): restore run\_script\_command.intent, dropped by the §2 rename [\#101](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/101) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.8.4a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.4a1) (2026-09-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.3a2...0.8.4a1)

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.7a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.7a1) (2026-09-25)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.6a1...0.8.7a1)
+
+**Merged pull requests:**
+
+- fix\(kab\): restore taladna, the word the native reviewer approved [\#105](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/105) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.8.6a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.6a1) (2026-09-18)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.5a1...0.8.6a1)

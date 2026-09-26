@@ -1,8 +1,12 @@
 {
+    "skill_id": "ovos-skill-cmd.openvoiceos",
     "name": "Cmd",
     "description": "Run shell commands and scripts by voice. A command runs immediately, without a confirmation step.",
     "examples": [
         "launch command ___",
         "run script ___"
+    ],
+    "tags": [
+        "system"
     ]
 }

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.8a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.8a1) (2026-09-26)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.7a1...0.8.8a1)
+
+**Merged pull requests:**
+
+- fix\(locale\): the store name and description in en-US [\#107](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/107) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.8.7a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.7a1) (2026-09-25)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.6a1...0.8.7a1)

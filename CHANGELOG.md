@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.9a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.9a1) (2026-09-26)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.8a1...0.8.9a1)
+
+**Merged pull requests:**
+
+- fix\(locale\): skill\_id and tags in the en-US skill.json [\#109](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/109) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.8.8a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.8.8a1) (2026-09-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.7a1...0.8.8a1)

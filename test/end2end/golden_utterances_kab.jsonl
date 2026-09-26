@@ -1,0 +1,3 @@
+{"skill_id": "ovos-skill-cmd.openvoiceos", "utterance": "sken-iyi-d iskripten-iw", "lang": "kab", "intent_method": null, "intent_label": "list_scripts", "intent_type": "padacioso", "expected_messages": ["speak"], "needs_manual": false}
+{"skill_id": "ovos-skill-cmd.openvoiceos", "utterance": "d acu n iskripten yettwaheggan", "lang": "kab", "intent_method": null, "intent_label": "list_scripts", "intent_type": "padacioso", "expected_messages": ["speak"], "needs_manual": false}
+{"skill_id": "ovos-skill-cmd.openvoiceos", "utterance": "anwa askript i tzemreḍ ad tselkmeḍ", "lang": "kab", "intent_method": null, "intent_label": "list_scripts", "intent_type": "padacioso", "expected_messages": ["speak"], "needs_manual": false}

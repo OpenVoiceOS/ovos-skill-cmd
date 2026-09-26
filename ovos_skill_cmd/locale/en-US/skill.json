@@ -1,4 +1,6 @@
 {
+    "name": "Cmd",
+    "description": "Run shell commands and scripts by voice. A command runs immediately, without a confirmation step.",
     "examples": [
         "launch command ___",
         "run script ___"

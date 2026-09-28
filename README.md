@@ -1,23 +1,23 @@
-# Commands Skill
+# OVOS Cmd Skill
 
-A simple OVOS skill for running shell scripts and other commands. The commands execute quietly without requiring confirmation from OVOS.
+This OVOS skill runs shell scripts and other commands. The commands run without asking for confirmation.
 
-## Features
+## Install
 
-- Run shell scripts or commands by speaking human-readable phrases.
-- Configure aliases for easy-to-remember commands.
-- Optionally run commands under a specific user's privileges.
+```bash
+pip install ovos-skill-cmd
+```
 
 ## Usage
 
-Trigger commands using phrases like:
+Trigger a command with a spoken phrase:
 
-- **"Hey Mycroft, launch command echo TEST"**
-- **"Hey Mycroft, run script generate report"**
+- "Hey Mycroft, launch command echo TEST"
+- "Hey Mycroft, run script generate report"
 
 ## Configuration
 
-The skill can be configured to map spoken phrases to scripts or commands in the `settings.json` file. For example:
+Configure the skill in `settings.json`. Map a spoken phrase to a script or command under `alias`. For example:
 
 ```json
 {
@@ -27,27 +27,30 @@ The skill can be configured to map spoken phrases to scripts or commands in the 
 }
 ```
 
-### Example:
-- User says: **"Run script generate report"**  
-- The skill executes: `/home/forslund/scripts/generate_report.sh`
+With this setting, the phrase "run script generate report" makes the skill execute `/home/forslund/scripts/generate_report.sh`.
 
-### Additional Settings:
+### user
 
-- **`user`** *(optional)*: Specify a username to run commands under their privileges. Example:
-  ```json
-  {
-    "user": "ovos"
-  }
-  ```
+Set `user` to run commands under a specific user's privileges:
 
-- **`shell`** *(optional)*: Determines whether commands are executed via a shell. Defaults to `true`. Example:
-  ```json
-  {
-    "shell": false
-  }
-  ```
+```json
+{
+  "user": "ovos"
+}
+```
 
-### Full Configuration Example:
+### shell
+
+Set `shell` to control whether commands run through a shell. It defaults to `true`:
+
+```json
+{
+  "shell": false
+}
+```
+
+### Full example
+
 ```json
 {
   "user": "ovos",
@@ -60,21 +63,17 @@ The skill can be configured to map spoken phrases to scripts or commands in the 
 }
 ```
 
-## Security Notes
+## Security notes
 
-1. **Shell Commands**: 
-   - By default, commands are executed via the shell, which allows complex operations but may expose security risks. If your commands don’t require shell features, set `shell` to `false`.
+- Running commands through a shell allows complex operations but can expose security risks. If your commands do not need shell features, set `shell` to `false`.
+- A command can run under a specific user through the `user` field. Make sure that user has the permissions the command needs.
+- Do not configure dangerous commands, such as `rm -rf`, without additional safeguards.
 
-2. **User Permissions**: 
-   - Commands can run under a specific user by configuring the `user` field. Ensure that the user has appropriate permissions to execute the commands.
+## Docker containers
 
-3. **Validation**:
-   - Avoid configuring dangerous commands like `rm -rf` without additional safeguards.
+Commands run only inside the Docker container. If a command also needs an effect outside the container, use an additional mechanism, such as a named pipe.
 
-
-## Note for using the skill in Docker containers:
-
-All commands run exclusively within the Docker container. If the commands/scripts are also supposed to have an effect outside the container, additional solutions are required. Here is an example for steering kodi (outsight the container) with ovos-skill-cmd:
+This example steers Kodi, which runs outside the container, from `ovos-skill-cmd`:
 
 ```json
 {
@@ -93,10 +92,19 @@ All commands run exclusively within the Docker container. If the commands/script
 }
 ```
 
-"/home/ovos/.config/mycroft/joespipe" is a named pipe placed in the shared volume of the ovos config folder. Outside of the container is a mini script watching for commands in the pipe:
+`/home/ovos/.config/mycroft/joespipe` is a named pipe in the shared volume of the OVOS config folder. Outside the container, a small script watches the pipe for commands:
 
-```json
+```bash
 #!/bin/bash
 while true; do eval "$(cat /storage/ovos/config/joespipe)"; done
 ```
-A description for the named pipe solution you can find [here](https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container)
+
+Read more about this named-pipe approach on [Stack Overflow](https://stackoverflow.com/questions/32163955/how-to-run-shell-script-on-host-from-docker-container).
+
+## Related projects
+
+- [OpenVoiceOS/OpenVoiceOS](https://github.com/OpenVoiceOS/OpenVoiceOS) — the OVOS platform this skill runs on.
+
+## License
+
+Apache License 2.0. See [LICENSE.txt](LICENSE.txt).

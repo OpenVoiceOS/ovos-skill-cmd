@@ -1,17 +1,17 @@
 """Multilingual golden-utterance end-to-end coverage for ovos-skill-cmd.
 
-test_golden_utterances.py only exercises en-US; every locale under
-ovos_skill_cmd/locale/ ships list_scripts.intent, and every locale except
-kab also ships run_script_command.intent (kab has list_scripts.intent and
-the dialog files but no run_script_command.intent, so it is covered only
-for list_scripts here -- a real coverage gap, not an oversight).
+Every locale under ovos_skill_cmd/locale/ ships list_scripts.intent and
+run_script_command.intent, and every ``golden_utterances_<lang>.jsonl``
+file present runs here, including rows marked ``needs_manual`` (machine
+generated, not yet vouched for by a native speaker). test_golden_utterances.py
+covers the en-US corpus in golden_utterances.jsonl.
 
 run_script_command needs the {script} slot filled by a
 dynamically-registered Padatious entity built from settings.alias (see
 initialize() in ovos_skill_cmd/__init__.py), so a settings file seeding two
 aliases ("backup", "weather") is written under a private XDG config root
 before each MiniCroft loads the skill, exactly as test_golden_utterances.py
-already does for en-US.
+does for en-US.
 
 One MiniCroft is booted PER LOCALE (module-scoped fixture, indirectly
 parametrized by lang; pytest reuses one boot per distinct lang value
@@ -50,10 +50,10 @@ from ovoscope import PADACIOSO_PIPELINE, CaptureSession, get_minicroft  # noqa: 
 
 END2END_DIR = Path(__file__).parent
 
-LANGS = [
-    "en-US", "ca-ES", "da-DK", "de-DE", "es-ES", "eu-ES", "fr-FR",
-    "gl-ES", "it-IT", "kab", "nl-NL", "oc-FR", "pt-BR", "pt-PT", "sv-SE",
-]
+LANGS = sorted(
+    p.stem.removeprefix("golden_utterances_")
+    for p in END2END_DIR.glob("golden_utterances_*.jsonl")
+)
 
 
 def _load_rows(lang):
@@ -64,10 +64,7 @@ def _load_rows(lang):
             line = line.strip()
             if not line:
                 continue
-            row = json.loads(line)
-            if row.get("needs_manual"):
-                continue
-            rows.append(row)
+            rows.append(json.loads(line))
     return rows
 
 
@@ -103,8 +100,6 @@ def _capture(mc, text, lang, session_id) -> List[Message]:
     return capture.finish()
 
 
-KNOWN_BUGS = {}
-
 _PARAMS = [
     pytest.param(row["lang"], row, id=_golden_id(row))
     for row in ALL_ROWS
@@ -117,10 +112,13 @@ def test_golden_utterance_multilang(minicroft, row):
     expected_intent = f"{SKILL_ID}:{row['intent_label']}"
     messages = _capture(minicroft, row["utterance"], row["lang"], f"golden-{_golden_id(row)}")
     types = [m.msg_type for m in messages]
-    matched = expected_intent in types
-    bug_key = (row["lang"], row["utterance"])
-    if bug_key in KNOWN_BUGS and not matched:
-        pytest.xfail(reason=f"known-bug: {KNOWN_BUGS[bug_key]}")
-    assert matched, (
+    assert expected_intent in types, (
         f"[{row['lang']}] {row['utterance']!r}: expected {expected_intent!r} in message types, got {types!r}"
     )
+
+
+def test_every_shipping_locale_has_a_golden_file():
+    golden = {p.stem.split("_", 2)[2] for p in END2END_DIR.glob("golden_utterances_*.jsonl")}
+    locale_root = END2END_DIR.parent.parent / "ovos_skill_cmd" / "locale"
+    shipping = {d.name for d in locale_root.iterdir() if d.is_dir() and any(d.rglob("*.intent"))}
+    assert golden == shipping, f"golden files {sorted(golden ^ shipping)} differ from shipping locales"

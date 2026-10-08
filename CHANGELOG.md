@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.9.0a2) (2026-10-08)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.9.0a1...0.9.0a2)
+
+**Merged pull requests:**
+
+- test: golden utterances for every intent in every shipped locale [\#115](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/115) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.9.0a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.9.0a1) (2026-09-28)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.8.9a2...0.9.0a1)
@@ -468,7 +476,6 @@
 **Merged pull requests:**
 
 - skill.json [\#15](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/15) ([JarbasAl](https://github.com/JarbasAl))
-- fixed italian translation [\#10](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/10) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 ## [V0.2.2a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.2a2) (2024-11-15)
 
@@ -497,7 +504,6 @@
 **Merged pull requests:**
 
 - Release 0.2.2a1 [\#12](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/12) ([github-actions[bot]](https://github.com/apps/github-actions))
-- da-dk/translate [\#11](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/11) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
 ## [V0.2.1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.1) (2024-10-15)
 

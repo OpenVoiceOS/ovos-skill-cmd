@@ -1,1 +1,6 @@
-(voer uit|start|lanceer) (commando|script) {script}
+(start|lanceer) (commando|script) {script}
+voer (commando|script) {script} uit
+kun je (alsjeblieft|even) (het script|het commando) {script} voor me (uitvoeren|starten)
+zou je zo vriendelijk willen zijn om (het script|het commando) {script} te (starten|draaien)
+ik wil dat je (het script|het commando) {script} (uitvoert|start)
+(kan je|wil je) (het script|het commando) {script} voor mij (draaien|starten)

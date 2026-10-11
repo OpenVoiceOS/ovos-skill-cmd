@@ -1,1 +1,3 @@
-(lance|exécute|démarre) (la|le|) (commande|script) {script}
+(lance|exécute|démarre) (la commande|le script|commande|script) {script}
+je voudrais que tu (lances|exécutes) (le script|la commande) {script}
+mets en route (le script|la commande) {script}

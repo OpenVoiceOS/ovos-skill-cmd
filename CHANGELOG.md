@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.0a3](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.9.0a3) (2026-10-13)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.9.0a2...0.9.0a3)
+
+**Merged pull requests:**
+
+- test: natural golden rows and m2v gate for every locale [\#76](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/76) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.9.0a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.9.0a2) (2026-10-08)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.9.0a1...0.9.0a2)
@@ -493,17 +501,9 @@
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.2a1...0.2.2a2)
 
-**Merged pull requests:**
-
-- shell kwarg [\#13](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/13) ([JarbasAl](https://github.com/JarbasAl))
-
 ## [0.2.2a1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.2a1) (2024-11-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.1...0.2.2a1)
-
-**Merged pull requests:**
-
-- Release 0.2.2a1 [\#12](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/12) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [V0.2.1](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.1) (2024-10-15)
 

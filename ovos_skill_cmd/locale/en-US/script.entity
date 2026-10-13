@@ -1,0 +1,10 @@
+deploy
+update
+sync
+cleanup
+maintenance
+report
+restore
+archive
+digest
+rotate

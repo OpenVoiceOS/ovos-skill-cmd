@@ -1,1 +1,4 @@
-(avvia|esegui|lancia|apri) (il|lo|un|uno|) (comando|script|codice) {script}
+(avvia|esegui|lancia|apri) (il comando|lo script|il codice|un comando|uno script|un codice|comando|script|codice) {script}
+potresti per favore (eseguire|avviare) (lo script|il comando) {script}
+vorrei che (eseguissi|avviassi|lanciassi) (lo script|il comando) {script}
+(metti|manda) in esecuzione (lo script|il comando) {script}

@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.9.0a4](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.9.0a4) (2026-10-28)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.9.0a3...0.9.0a4)
+
+**Merged pull requests:**
+
+- test: run the end2end suite on the m2v prototype pipeline [\#118](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/118) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.9.0a3](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.9.0a3) (2026-10-13)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.9.0a2...0.9.0a3)
@@ -471,7 +479,6 @@
 **Merged pull requests:**
 
 - fix: register script aliases in all langs, not only in main one [\#17](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/17) ([JarbasAl](https://github.com/JarbasAl))
-- Release 0.2.2a4 [\#16](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/16) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [0.2.2a4](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.2a4) (2024-11-17)
 
@@ -481,10 +488,6 @@
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/V0.2.2a2...0.2.2a3)
 
-**Merged pull requests:**
-
-- skill.json [\#15](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/15) ([JarbasAl](https://github.com/JarbasAl))
-
 ## [V0.2.2a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/V0.2.2a2) (2024-11-15)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.2...V0.2.2a2)
@@ -492,10 +495,6 @@
 ## [0.2.2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.2) (2024-11-15)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-cmd/compare/0.2.2a2...0.2.2)
-
-**Merged pull requests:**
-
-- Release 0.2.2a2 [\#14](https://github.com/OpenVoiceOS/ovos-skill-cmd/pull/14) ([github-actions[bot]](https://github.com/apps/github-actions))
 
 ## [0.2.2a2](https://github.com/OpenVoiceOS/ovos-skill-cmd/tree/0.2.2a2) (2024-11-15)
 

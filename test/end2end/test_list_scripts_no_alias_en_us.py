@@ -20,7 +20,8 @@ def _seed_settings() -> None:
 
 from ovos_bus_client.message import Message  # noqa: E402
 from ovos_bus_client.session import Session  # noqa: E402
-from ovoscope import get_minicroft, CaptureSession, PADACIOSO_PIPELINE  # noqa: E402
+from ovoscope import CaptureSession  # noqa: E402
+from ovoscope.routing import PIPELINE, TALLY, get_prototype_minicroft  # noqa: E402
 
 
 class TestListScriptsIntentNoAlias(TestCase):
@@ -29,7 +30,7 @@ class TestListScriptsIntentNoAlias(TestCase):
     @classmethod
     def setUpClass(cls):
         _seed_settings()
-        cls.minicroft = get_minicroft([SKILL_ID])
+        cls.minicroft = get_prototype_minicroft([SKILL_ID], lang=LANG)
 
     @classmethod
     def tearDownClass(cls):
@@ -39,7 +40,7 @@ class TestListScriptsIntentNoAlias(TestCase):
     def test_no_scripts_configured(self):
         session = Session("e2e-en_us-cmd-list-empty")
         session.lang = LANG
-        session.pipeline = PADACIOSO_PIPELINE
+        session.pipeline = PIPELINE
         capture = CaptureSession(self.minicroft)
         capture.capture(
             Message(
@@ -50,8 +51,7 @@ class TestListScriptsIntentNoAlias(TestCase):
             timeout=30,
         )
         messages = capture.finish()
-        types = [m.msg_type for m in messages]
-        self.assertIn(LIST_INTENT, types)
+        TALLY.assert_routed("list my aliases", LIST_INTENT, [m.msg_type for m in messages])
         spoken = [
             m.data.get("utterance", "")
             for m in messages

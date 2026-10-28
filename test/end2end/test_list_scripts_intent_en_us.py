@@ -30,13 +30,14 @@ def _seed_settings(alias) -> None:
 
 from ovos_bus_client.message import Message  # noqa: E402
 from ovos_bus_client.session import Session  # noqa: E402
-from ovoscope import get_minicroft, CaptureSession, PADACIOSO_PIPELINE  # noqa: E402
+from ovoscope import CaptureSession  # noqa: E402
+from ovoscope.routing import PIPELINE, TALLY, get_prototype_minicroft  # noqa: E402
 
 
 def _session(tag: str) -> Session:
     session = Session(f"e2e-en_us-cmd-list-{tag}")
     session.lang = LANG
-    session.pipeline = PADACIOSO_PIPELINE
+    session.pipeline = PIPELINE
     return session
 
 
@@ -54,7 +55,7 @@ class TestListScriptsIntent(TestCase):
     @classmethod
     def setUpClass(cls):
         _seed_settings(ALIASES)
-        cls.minicroft = get_minicroft([SKILL_ID])
+        cls.minicroft = get_prototype_minicroft([SKILL_ID], lang=LANG)
 
     @classmethod
     def tearDownClass(cls):
@@ -76,12 +77,7 @@ class TestListScriptsIntent(TestCase):
 
     def assertRoutesToList(self, utterance: str):
         messages = self._capture(utterance)
-        types = [m.msg_type for m in messages]
-        self.assertIn(
-            LIST_INTENT, types,
-            f"expected {LIST_INTENT!r} to be matched for {utterance!r}, "
-            f"got {types}",
-        )
+        TALLY.assert_routed(utterance, LIST_INTENT, [m.msg_type for m in messages])
         spoken = self._spoken(messages)
         self.assertTrue(
             any("backup" in utt and "weather" in utt for utt in spoken),

@@ -1,17 +1,17 @@
 """End-to-end intent-routing tests for ovos-skill-cmd (en-US).
 
-These assert *per-utterance* that the Padatious pipeline routes an utterance
-to the ``run_script_command`` handler and that the skill speaks the
+These assert *per-utterance* that the m2v prototype pipeline routes an
+utterance to the ``run_script_command`` handler and that the skill speaks the
 configured alias back. They deliberately use subset assertions over the
 captured message stream rather than a strict full-sequence match: the exact
 ordered sequence drifts across ovos-core / ovoscope releases (e.g. an extra
 ``ovos.intent.matched`` message, or ``speak`` vs ``ovos.utterance.speak``),
 which is orthogonal to what this skill is responsible for.
 
-``run_script_command`` is trained from ``run_script_command.intent``,
-with the ``{script}`` slot filled from a Padatious entity that is registered
-dynamically from the skill's ``alias`` setting. The suite therefore seeds a
-settings file with a couple of aliases under a private XDG config root
+``run_script_command`` is built from ``run_script_command.intent``, with the
+``{script}`` slot filled from an entity that is registered dynamically from
+the skill's ``alias`` setting. The suite therefore seeds a settings file
+with a couple of aliases under a private XDG config root
 *before* the MiniCroft loads the skill, so ``initialize()`` registers the
 matching entity.
 
@@ -49,13 +49,14 @@ _seed_settings()
 
 from ovos_bus_client.message import Message  # noqa: E402
 from ovos_bus_client.session import Session  # noqa: E402
-from ovoscope import get_minicroft, CaptureSession, PADACIOSO_PIPELINE  # noqa: E402
+from ovoscope import CaptureSession  # noqa: E402
+from ovoscope.routing import PIPELINE, TALLY, get_prototype_minicroft  # noqa: E402
 
 
 def _session(tag: str) -> Session:
     session = Session(f"e2e-en_us-cmd-{tag}")
     session.lang = LANG
-    session.pipeline = PADACIOSO_PIPELINE
+    session.pipeline = PIPELINE
     return session
 
 
@@ -72,7 +73,7 @@ class _RunRoutingMixin:
 
     @classmethod
     def setUpClass(cls):
-        cls.minicroft = get_minicroft([SKILL_ID])
+        cls.minicroft = get_prototype_minicroft([SKILL_ID], lang=LANG)
 
     @classmethod
     def tearDownClass(cls):
@@ -94,12 +95,7 @@ class _RunRoutingMixin:
 
     def assertRoutesToRun(self, utterance: str, alias: str):
         messages = self._capture(utterance)
-        types = [m.msg_type for m in messages]
-        self.assertIn(
-            RUN_INTENT, types,
-            f"expected {RUN_INTENT!r} to be matched for {utterance!r}, "
-            f"got {types}",
-        )
+        TALLY.assert_routed(utterance, RUN_INTENT, [m.msg_type for m in messages])
         spoken = self._spoken(messages)
         self.assertTrue(
             any(f"running {alias}" in utt for utt in spoken),
@@ -121,8 +117,9 @@ class TestRunScriptCommand(_RunRoutingMixin, TestCase):
         self.assertRoutesToRun("launch command backup", "backup")
 
     def test_unknown_alias_does_not_run(self):
-        messages = self._capture("run script that does not exist")
-        self.assertIn(RUN_INTENT, [m.msg_type for m in messages])
+        utterance = "run script that does not exist"
+        messages = self._capture(utterance)
+        TALLY.assert_routed(utterance, RUN_INTENT, [m.msg_type for m in messages])
         spoken = self._spoken(messages)
         self.assertTrue(
             any("don't know a script" in utt for utt in spoken),

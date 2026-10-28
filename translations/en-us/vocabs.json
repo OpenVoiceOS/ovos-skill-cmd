@@ -1,5 +1,0 @@
-{
-    "Run.voc": [
-        "(run|execute|launch) (command|script)"
-    ]
-}
